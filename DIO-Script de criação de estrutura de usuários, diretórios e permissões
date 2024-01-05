@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Criar grupos
+sudo groupadd GRP_ADM
+sudo groupadd GRP_VEN
+sudo groupadd GRP_SEC
+
+# Criar usuários
+sudo useradd -m -G GRP_ADM carlos
+sudo useradd -m -G GRP_ADM maria
+sudo useradd -m -G GRP_VEN joao
+sudo useradd -m -G GRP_VEN debora
+sudo useradd -m -G GRP_SEC sebastiana
+sudo useradd -m -G GRP_SEC roberto
+sudo useradd -m -G GRP_ADM,GRP_VEN,GRP_SEC josefina
+sudo useradd -m -G GRP_VEN amanda
+sudo useradd -m -G GRP_SEC rogerio
+
+# Criar diretórios
+sudo mkdir /publico
+sudo mkdir /adm
+sudo mkdir /ven
+sudo mkdir /sec
+
+# Atribuir permissões
+sudo chown :GRP_ADM /adm
+sudo chmod 770 /adm
+
+sudo chown :GRP_VEN /ven
+sudo chmod 770 /ven
+
+sudo chown :GRP_SEC /sec
+sudo chmod 770 /sec
+
+sudo chown :GRP_ADM /publico
+sudo chmod 770 /publico
