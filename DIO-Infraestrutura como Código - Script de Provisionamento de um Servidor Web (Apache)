@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Restaurar o snapshot no VirtualBox (substitua 'SeuSnapshot' pelo nome do snapshot)
+VBoxManage snapshot "NomeDaSuaMaquina" restore "SeuSnapshot"
+
+# Atualizar o sistema
+sudo apt update
+sudo apt upgrade -y
+
+# Instalar o Apache
+sudo apt install apache2 -y
+
+# Instalar o unzip
+sudo apt install unzip -y
+
+# Baixar e descompactar a aplicação
+cd /tmp
+wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
+unzip main.zip
+
+# Copiar os arquivos da aplicação para o diretório padrão do Apache
+sudo cp -r /tmp/linux-site-dio-main/* /var/www/html/
